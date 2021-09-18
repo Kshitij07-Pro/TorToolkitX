@@ -53,7 +53,7 @@ async def upload_to_tg(
                     media.append(ab_path)
                     caption = get_caption(post)[:1023]
                     caption += (
-                        f"\n\n<a href='tg://user?id={sender_id}'>Done</a>\n#uploads\n"
+                        f"\n\n📌 <a href='tg://user?id={sender_id}'>Done</a>\n#uploads\n"
                     )
                     captioned = True
             elif str(path).endswith(vdo):
@@ -63,7 +63,7 @@ async def upload_to_tg(
                     media.append(ab_path)
                     caption = get_caption(post)[:1023]
                     caption += (
-                        f"\n\n<a href='tg://user?id={sender_id}'>Done</a>\n#uploads\n"
+                        f"\n\n📌 <a href='tg://user?id={sender_id}'>Done</a>\n#uploads\n"
                     )
                     captioned = True
         if media:
@@ -86,7 +86,7 @@ async def upload_to_tg(
                     message.chat_id,
                     ab_path,
                     caption=get_caption(post)[:1023]
-                    + f"\n\n<a href='tg://user?id={sender_id}'>Done</a>\n#uploads\n",
+                    + f"\n\n📌 <a href='tg://user?id={sender_id}'>Done</a>\n#uploads\n",
                     parse_mode="html",
                     reply_to=message.id,
                 )
@@ -104,7 +104,7 @@ async def upload_to_tg(
                     file=ab_path,
                     thumb=thumb,
                     caption=get_caption(post)[:1023]
-                    + f"\n\n<a href='tg://user?id={sender_id}'>Done</a>\n#uploads\n",
+                    + f"\n\n📌 <a href='tg://user?id={sender_id}'>Done</a>\n#uploads\n",
                     parse_mode="html",
                     reply_to=message.id,
                 )

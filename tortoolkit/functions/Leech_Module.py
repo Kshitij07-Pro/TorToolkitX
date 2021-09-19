@@ -75,7 +75,7 @@ async def check_link(msg, rclone=False, is_zip=False, extract=False, prev_msg=No
     msg = await msg.get_reply_message()
 
     if extract:
-        mess = f"You chose to extract the archive <a href='tg://user?id={omess.sender_id}'>ENTER PASSWORD IF ANY.</a>\n Use <code>/setpass {omess.id} password-here</code>"
+        mess = f"<a href='tg://user?id={omess.sender_id}'>You</a> chose to extract the archive, ENTER PASSWORD IF ANY.\n Use <code>/setpass {omess.id} password_here</code>"
         omess.client.dl_passwords[omess.id] = [str(omess.sender_id), None]
         await omess.reply(mess, parse_mode="html")
 
@@ -512,7 +512,7 @@ async def handle_ext_zip(path, rmess, omess):
 
         if isinstance(ext_path, str):
             if "Wrong Password" in ext_path:
-                mess = f"<a href='tg://user?id={omess.sender_id}'>RE-ENTER PASSWORD</a>\nThe passowrd <code>{password}</code> you provided is a wrong password.You have {((time.time()-start)/60)-20} Mins to reply else un extracted zip will be uploaded.\n Use <code>/setpass {omess.id} password-here</code>"
+                mess = f"RE-ENTER PASSWORD.\nThe passowrd <code>{password}</code> <a href='tg://user?id={omess.sender_id}'>you</a> provided is a wrong password.You have {((time.time()-start)/60)-20} Mins to reply else un extracted zip will be uploaded.\n Use <code>/setpass {omess.id} password_here</code>"
                 await omess.reply(mess, parse_mode="html")
                 wrong_pwd = True
             else:
@@ -531,7 +531,7 @@ async def handle_ext_zip(path, rmess, omess):
 
 
 async def errored_message(e, reason):
-    msg = f"<a href='tg://user?id={e.sender_id}'>Done</a>\nYour Download Failed."
+    msg = f"LMAO!\n<a href='tg://user?id={e.sender_id}'>Your</a> Download Failed."
     if reason is not None:
         await reason.reply(msg, parse_mode="html")
     else:
@@ -539,7 +539,7 @@ async def errored_message(e, reason):
 
 
 async def print_files(e, files, thash=None, path=None, size=None):
-    msg = f"<a href='tg://user?id={e.sender_id}'>Done</a>\n#uploads\n"
+    msg = f"📌 <a href='tg://user?id={e.sender_id}'>Your</a> Leech is Done\n#uploads\n"
 
     if path is not None and size is None:
         size = calculate_size(path)
@@ -558,11 +558,11 @@ async def print_files(e, files, thash=None, path=None, size=None):
     msg_li = []
     for i in files.keys():
         link = f"https://t.me/c/{str(chat_id)[4:]}/{files[i]}"
-        if len(msg + f'🚩 <a href="{link}">{i}</a>\n') > 4000:
+        if len(msg + f'➩ <a href="{link}">{i}</a>\n') > 4000:
             msg_li.append(msg)
-            msg = f'🚩 <a href="{link}">{i}</a>\n'
+            msg = f'➩ <a href="{link}">{i}</a>\n'
         else:
-            msg += f'🚩 <a href="{link}">{i}</a>\n'
+            msg += f'➩ <a href="{link}">{i}</a>\n'
 
     for i in msg_li:
         await e.reply(i, parse_mode="html")

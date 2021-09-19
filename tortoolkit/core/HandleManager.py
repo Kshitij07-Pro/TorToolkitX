@@ -477,7 +477,7 @@ async def handle_settings_cb(e):
     if await is_admin(e.client, e.sender_id, e.chat_id):
         await handle_setting_callback(e)
     else:
-        await e.answer("⚠️ WARN ⚠️ Dont Touch Admin Settings.", alert=True)
+        await e.answer("⚠️ WARN ⚠️ Dont Touch Admin Settings. (Aukat me Reh)", alert=True)
 
 
 async def handle_upcancel_cb(e):

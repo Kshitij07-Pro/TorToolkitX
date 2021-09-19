@@ -124,18 +124,18 @@ async def rclone_upload(
         folder_link = f"https://drive.google.com/folderview?id={gid[0]}"
 
         buttons = []
-        buttons.append([KeyboardButtonUrl("Drive URL", folder_link)])
+        buttons.append([KeyboardButtonUrl("𝙶-𝙳𝚛𝚒𝚟𝚎 👀", folder_link)])
         gd_index = get_val("GD_INDEX_URL")
         if gd_index:
             index_link = "{}/{}/".format(gd_index.strip("/"), gid[1])
             index_link = requote_uri(index_link)
             torlog.info("index link " + str(index_link))
-            buttons.append([KeyboardButtonUrl("Index URL", index_link)])
+            buttons.append([KeyboardButtonUrl("𝙸𝚗𝚍𝚎𝚡 𝙳𝙳𝙻 📥", index_link)])
 
         ul_size = calculate_size(path)
         transfer[0] += ul_size
         ul_size = Human_Format.human_readable_bytes(ul_size)
-        txtmsg = "<a href='tg://user?id={}'>Done</a>\n#uploads\nUploaded Size:- {}\nUPLOADED FOLDER :-<code>{}</code>\nTo Drive.".format(
+        txtmsg = "📌 <a href='tg://user?id={}'>Your</a> Leech is Done\n#uploads\nUploaded Size:- {}\nUPLOADED FOLDER :-<code>{}</code>\nTo Drive.".format(
             omsg.sender_id, ul_size, os.path.basename(path)
         )
 
@@ -193,18 +193,18 @@ async def rclone_upload(
         buttons = []
 
         file_link = f"https://drive.google.com/file/d/{gid[0]}/view"
-        buttons.append([KeyboardButtonUrl("Drive URL", file_link)])
+        buttons.append([KeyboardButtonUrl("𝙶-𝙳𝚛𝚒𝚟𝚎 👀", file_link)])
         gd_index = get_val("GD_INDEX_URL")
         if gd_index:
             index_link = "{}/{}".format(gd_index.strip("/"), gid[1])
             index_link = requote_uri(index_link)
             torlog.info("index link " + str(index_link))
-            buttons.append([KeyboardButtonUrl("Index URL", index_link)])
+            buttons.append([KeyboardButtonUrl("𝙸𝚗𝚍𝚎𝚡 𝙳𝙳𝙻 📥", index_link)])
 
         ul_size = calculate_size(path)
         transfer[0] += ul_size
         ul_size = Human_Format.human_readable_bytes(ul_size)
-        txtmsg = "<a href='tg://user?id={}'>Done</a>\n#uploads\nUploaded Size:- {}\nUPLOADED FILE :-<code>{}</code>\nTo Drive.".format(
+        txtmsg = "📌 <a href='tg://user?id={}'>Your</a> Leech is Done.\n#uploads\nUploaded Size:- {}\nUPLOADED FILE :-<code>{}</code>\nTo Drive.".format(
             omsg.sender_id, ul_size, os.path.basename(path)
         )
 
@@ -363,7 +363,7 @@ def calculate_size(path):
             else:
                 return os.path.getsize(path)
         except:
-            torlog.warning("Size Calculation Failed.")
+            torlog.warning("Size Calculation Failed. Maybe I'm weak at Maths! 😬")
             return 0
     else:
         return 0

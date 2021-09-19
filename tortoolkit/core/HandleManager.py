@@ -494,7 +494,7 @@ async def handle_upcancel_cb(e):
         db.cancel_download(data[1], data[2])
         await e.answer("UPLOAD CANCELED IN ADMIN MODE XD ;)", alert=True)
     else:
-        await e.answer("Can't Cancel others upload 😡", alert=True)
+        await e.answer("Can't Cancel others upload 😏", alert=True)
 
 
 async def callback_handler_canc(e):
@@ -539,7 +539,7 @@ async def callback_handler_canc(e):
         await cancel_torrent(hashid, is_aria, is_mega)
         await e.answer("Leech has been canceled in ADMIN MODE XD ;)", alert=True)
     else:
-        await e.answer("Can't Cancel others leech 😡", alert=True)
+        await e.answer("Can't Cancel others leech 😏", alert=True)
 
 
 async def handle_exec_message_f(e):
@@ -933,7 +933,7 @@ async def booted(client):
     chats = get_val("ALD_USR")
     for i in chats:
         try:
-            await client.send_message(i, "The bot is booted and is ready to use.")
+            await client.send_message(i, "♻️ The bot is booted and is ready to use.")
         except Exception:
             torlog.info(f"Not found the entity {i}")
 

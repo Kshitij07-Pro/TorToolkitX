@@ -270,7 +270,7 @@ async def update_progress(
 
         if tor_info.size > (get_val("MAX_TORRENT_SIZE") * 1024 * 1024 * 1024):
             await message.edit(
-                "Torrent oversized max size is {}. Try adding again and choose less files to download.".format(
+                "Torrent oversized max size is {}. Try adding again and choose less files this time.".format(
                     get_val("MAX_TORRENT_SIZE")
                 ),
                 buttons=None,
